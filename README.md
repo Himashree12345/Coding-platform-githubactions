@@ -1,3 +1,9 @@
+#BUILT AN ONLINE CODING PLATFORM FROM SCRATCH AND DOCKERISED THE APPLICATION AND FINALLY HOSTED IN EC2 SERVER
+
+#BELOW ARE THE STEPS:
+
+
+
 # HOSTING A MERN APPLICATION ON EC2 INSTANCE
 
 # STEPS:
@@ -29,4 +35,27 @@
 6.Hit the public IP in the ec2 server
 
 ![Screenshot (161)](https://github.com/HIMA10SHREE/Coding-platform/assets/52618743/8f8add3c-fc23-485e-a780-1fa1f51d16bc)
+
+
+
+# Commands to run docker:
+
+building image:
+```bash
+  docker build -t imagename:version .
+  ```
+
+  eg: docker build -t himashree/onlinecoding_platform:latest .
+
+to containeraise image:
+
+```bash
+  docker container run -d -p 3000:3000 -p 8000:8000 himashree/onlinecoding_platform:latest
+```
+additional command:
+
+to check continers:
+```bash
+  docker container ls
+```
 
