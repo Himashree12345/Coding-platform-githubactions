@@ -12,7 +12,7 @@
 
 2.ssh to the instance and clone the github repo using git clone
 
-3.install the latest node package(in my case I installed nodev18.18.0 since my different packages in the application was not supporting lower packages)
+3.install the latest node package(in my case I installed nodev18.18.0 since my different packages in the application was not supporting lower version)
 
 ```bash
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh
