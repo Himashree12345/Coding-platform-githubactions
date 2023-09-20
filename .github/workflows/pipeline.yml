@@ -74,7 +74,7 @@ jobs:
     - name: Deploy the aplication to ec2 instance
       working-directory: ./
       run: 
-          npm i concurrently
+         
           npm run dev
          
 
