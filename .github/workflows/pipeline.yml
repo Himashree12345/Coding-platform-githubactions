@@ -1,0 +1,60 @@
+name: Build and Deploy mern application
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}   
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
+  MONGO_URL: ${{ secrets.MONGO_URL }}
+  PORT: ${{ secrets.PORT }}
+  REACT_APP_API: ${{ secrets.REACT_APP_API}}
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    
+    steps:
+    - name: Checkout code
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: Install and Test Client
+        working-directory: ./client
+        run: |
+          npm install
+          export REACT_APP_API=$REACT_APP_API
+          npm run test
+          touch .env
+          echo REACT_APP_API =${{ secrets.REACT_APP_API }} >> .env
+      
+      - name: Install and Test Server
+        run: |
+          npm install
+          export  MONGO_URL= $MONGO_URL
+          export PORT= $PORT
+          export JWT_SECRET= $JWT_SECRET
+          echo   MONGO_URL =${{ secrets.MONGO_URL }} >> .env
+          echo   PORT =${{ secrets.PORT }} >> .env
+          echo   REACT_APP_API =${{ secrets.REACT_APP_API}} >> .env
+          
+          npm run test    
+
+          
+          
+          
+
+    
+      
