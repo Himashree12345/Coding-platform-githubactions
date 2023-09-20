@@ -39,6 +39,7 @@ jobs:
           echo REACT_APP_API =${{ secrets.REACT_APP_API }} >> .env
       
     - name: Install and Test Server
+      working-directory: ./
       run: |
           npm install
           export  MONGO_URL= $MONGO_URL
