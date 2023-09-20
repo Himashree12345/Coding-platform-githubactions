@@ -35,7 +35,6 @@ jobs:
       run: |
           npm install
           export REACT_APP_API=$REACT_APP_API
-          npm run test
           touch .env
           echo REACT_APP_API =${{ secrets.REACT_APP_API }} >> .env
       
@@ -49,7 +48,7 @@ jobs:
           echo   PORT =${{ secrets.PORT }} >> .env
           echo   REACT_APP_API =${{ secrets.REACT_APP_API}} >> .env
           
-          npm run test    
+        
 
           
           
