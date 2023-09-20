@@ -73,7 +73,7 @@ jobs:
     
     - name: Deploy the aplication to ec2 instance
       run:  
-        cd ./_work/Coding-platform-githubactions/Coding-platform-githubactions
+        cd /home/ubuntu/actions-runner/_work/Coding-platform-githubactions/Coding-platform-githubactions
         npm run dev
         
 
