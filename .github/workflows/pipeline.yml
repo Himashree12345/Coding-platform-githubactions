@@ -59,12 +59,14 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
 
-    - name: Build and push Docker images
-      uses: docker/build-push-action@v5.0.0
-      with:
-       context: DockerFile
-       push: true
-       tag: himashree/online-judge-gitHubActions:latest
+    - name: Build Server Docker Image
+      working-directory: ./
+      run: |
+          docker build -t himashree/coding_platform-githubActions:latest .
+
+    - name: Push Docker Images to Docker Hub
+      run: |
+          docker push  himashree/coding_platform-githubActions:latest
        
 
           
