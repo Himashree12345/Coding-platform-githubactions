@@ -30,18 +30,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    
     - name: Install and Test Client
-        working-directory: ./client
-        run: |
+      working-directory: ./client
+      run: |
           npm install
           export REACT_APP_API=$REACT_APP_API
           npm run test
           touch .env
           echo REACT_APP_API =${{ secrets.REACT_APP_API }} >> .env
       
-      - name: Install and Test Server
-        run: |
+    - name: Install and Test Server
+      run: |
           npm install
           export  MONGO_URL= $MONGO_URL
           export PORT= $PORT
