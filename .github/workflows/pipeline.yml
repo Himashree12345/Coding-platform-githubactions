@@ -88,14 +88,17 @@ jobs:
          #       echo docker stop "$container_name" && docker rm "$container_name"
          #    fi   
          #    echo docker container run --name "$container_name" -d -p 3000:3000 -p 8000:8000 hima10shree/coding_platform-githubactions:latest
-         shell: bash
-         run:  
-          container_name="my_container_mern_app"
-          echo docker ps -a --format "{{.Names}}"
-          #   echo docker stop "$container_name" && docker rm "$container_name"
-          # fi
-          # docker container run --name "$container_name" -d -p 3000:3000 -p 8000:8000 hima10shree/coding_platform-githubactions:latest
+         shell: pwsh
+         run: |
+         
+          $container_name   = my_container_mern_app
+          $comnd = docker ps -a --format "{{.Names}}" | grep -q $container_name
+          if ($comnd) {
+              docker stop $container_name 
+              docker rm $container_name
+          }
 
+          docker container run --name "$container_name" -d -p 3000:3000 -p 8000:8000 hima10shree/coding_platform-githubactions:latest
           
           
           
