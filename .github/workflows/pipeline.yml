@@ -82,10 +82,10 @@ jobs:
        - name: Deploy the aplication to ec2 instance
          shell: bash
          run: |
-          $containerName = "my_react_app"
+          containerName = "my_react_app"
 
           if docker ps --format '{{.Names}}' | grep -q "$container_name"; then
-          
+          .
               docker stop "$container_name"
           
               docker rm "$container_name"
