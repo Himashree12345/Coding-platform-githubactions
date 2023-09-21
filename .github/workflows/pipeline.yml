@@ -50,7 +50,12 @@ jobs:
           echo   PORT =${{ secrets.PORT }} >> .env
           echo   REACT_APP_API =${{ secrets.REACT_APP_API}} >> .env
 
-   
+
+    - name: Publish artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: ./
 
    
 
