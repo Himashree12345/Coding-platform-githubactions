@@ -81,6 +81,8 @@ jobs:
      steps:
        - name: Deploy the aplication to ec2 instance
          run:  
+            docker stop $(docker ps -a -q)
+            docker rm $(docker ps -a -q)
             docker container run -d -p 3000:3000 -p 8000:8000 hima10shree/coding_platform-githubactions:latest
         
 
