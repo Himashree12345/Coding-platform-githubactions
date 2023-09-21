@@ -80,19 +80,18 @@ jobs:
      runs-on: self-hosted
      steps:
        - name: Deploy the aplication to ec2 instance
-         shell: pwsh
+         shell: bash
          run: |
           $containerName = "my_react_app"
 
-          $runningContainer = Get-DockerContainer -Name $containerName -ErrorAction SilentlyContinue 
-          if ($runningContainer) {
+          if docker ps --format '{{.Names}}' | grep -q "$container_name"; then
           
-              Stop-DockerContainer -ContainerId $runningContainer.Id -Force
+              docker stop "$container_name"
           
-              Remove-DockerContainer -ContainerId $runningContainer.Id -Force
+              docker rm "$container_name"
           
-          }
-            
+          fi
+                      
           docker container run -d --name "$container_name"  -p 3000:3000 -p 8000:8000 hima10shree/coding_platform-githubactions:latest
           
           
