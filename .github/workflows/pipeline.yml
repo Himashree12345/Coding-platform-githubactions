@@ -81,7 +81,7 @@ jobs:
      steps:
        - name: Deploy the aplication to ec2 instance
          run:  
-            container_name="my_container_mern_app
+            container_name="my_container_mern_app"
             if [ docker ps -a --format "{{.Names}}" | grep -q "$container_name" ]; then
                docker stop "$container_name" && docker rm "$container_name"
             fi   
