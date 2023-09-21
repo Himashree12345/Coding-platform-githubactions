@@ -76,6 +76,7 @@ jobs:
           docker push  hima10shree/coding_platform-githubactions:latest
 
   deploy :
+     needs: build
      runs-on: self-hosted
      steps:
        - name: Deploy the aplication to ec2 instance
