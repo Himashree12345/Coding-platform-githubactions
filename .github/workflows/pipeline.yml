@@ -34,7 +34,7 @@ jobs:
       working-directory: ./client
       run: |
           npm install
-          export REACT_APP_API=$REACT_APP_API
+          # export REACT_APP_API=$REACT_APP_API
           touch .env
           echo REACT_APP_API =${{ secrets.REACT_APP_API }} >> .env
       
@@ -42,9 +42,9 @@ jobs:
       working-directory: ./
       run: |
           npm install
-          export  MONGO_URL=$MONGO_URL
-          export PORT=$PORT
-          export JWT_SECRET=$JWT_SECRET
+          # export  MONGO_URL=$MONGO_URL
+          # export PORT=$PORT
+          # export JWT_SECRET=$JWT_SECRET
           touch .env
           echo   MONGO_URL =${{ secrets.MONGO_URL }} >> .env
           echo   PORT =${{ secrets.PORT }} >> .env
