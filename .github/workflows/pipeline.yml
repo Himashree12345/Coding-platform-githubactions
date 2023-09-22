@@ -82,13 +82,9 @@ jobs:
        - name: Deploy the aplication to ec2 instance
          
          run: 
-           if [ $(docker ps -q | wc -l) -gt 0 ]; then
-            docker stop $(docker ps -q)
-            docker rm $(docker ps -aq)
-           fi
            docker container run -d -p 3000:3000 -p 8000:8000 hima10shree/coding_platform-githubactions:latest
           
-         shell : bash 
+      
           
 
     
