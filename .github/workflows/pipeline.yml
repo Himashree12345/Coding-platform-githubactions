@@ -57,9 +57,9 @@ jobs:
           npm i --save-dev jest superset cross-env
           npm run test
           
-          
+      
 
-    - name: Publish artifacts
+    - name: Publish artifact
       uses: actions/upload-artifact@v3
       with:
         name: my-artifact
