@@ -54,7 +54,7 @@ jobs:
 
     - name: Test App.js
       working-directory: ./client
-          npm run test
+          npm test
           
       
 
