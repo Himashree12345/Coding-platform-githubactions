@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import Mainbody from "../../components/Mainbody.js"
 import toast from 'react-hot-toast';
-import axios from "axios"
 import { useNavigate,useLocation } from 'react-router-dom'
 import { useAuth } from '../../context/auth.js';
 
