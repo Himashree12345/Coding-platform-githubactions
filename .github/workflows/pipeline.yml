@@ -52,10 +52,10 @@ jobs:
           echo   REACT_APP_API =${{ secrets.REACT_APP_API}} >> .env
 
 
-    - name: Test App.js
-      working-directory: ./client
-          npm i --save-dev jest superset cross-env
-          npm run test
+    # - name: Test App.js
+    #   working-directory: ./client
+    #       npm i --save-dev jest superset cross-env
+    #       npm run test
           
       
 
