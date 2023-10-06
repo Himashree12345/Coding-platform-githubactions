@@ -54,10 +54,7 @@ jobs:
     - name: Test files
       working-directory: ./TEST
       run: |
-          npm run login_test
-          npm run register_test
-          npm run Problem_list
-          npm run SinglePage_test
+          npm run test
           
 
     - name: Publish artifacts
