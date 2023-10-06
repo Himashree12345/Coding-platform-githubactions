@@ -50,6 +50,11 @@ jobs:
           echo   PORT =${{ secrets.PORT }} >> .env
           echo   REACT_APP_API =${{ secrets.REACT_APP_API}} >> .env
 
+    - name: Test files
+      working-directory: ./TEST
+      run: |
+          npm run test
+          
 
     - name: Publish artifacts
       uses: actions/upload-artifact@v3
