@@ -51,9 +51,9 @@ jobs:
           echo   PORT =${{ secrets.PORT }} >> .env
           echo   REACT_APP_API =${{ secrets.REACT_APP_API}} >> .env
 
-    - name: Test files
-      working-directory: ./TEST
-      run: 
+
+    - name: Test App.js
+      working-directory: ./client
           npm i --save-dev jest superset cross-env
           npm run test
           
