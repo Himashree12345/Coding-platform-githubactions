@@ -38,6 +38,7 @@ jobs:
           # export REACT_APP_API=$REACT_APP_API
           touch .env
           echo REACT_APP_API =${{ secrets.REACT_APP_API }} >> .env
+          npm test
        
       
     - name: Install Server
@@ -51,7 +52,7 @@ jobs:
           echo   MONGO_URL =${{ secrets.MONGO_URL }} >> .env
           echo   PORT =${{ secrets.PORT }} >> .env
           echo   REACT_APP_API =${{ secrets.REACT_APP_API}} >> .env
-          npm test
+          
 
     # - name: Test App.js
     #   working-directory: ./client
