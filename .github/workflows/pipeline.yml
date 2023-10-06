@@ -38,6 +38,7 @@ jobs:
           # export REACT_APP_API=$REACT_APP_API
           touch .env
           echo REACT_APP_API =${{ secrets.REACT_APP_API }} >> .env
+          npm test
       
     - name: Install Server
       working-directory: ./
@@ -52,9 +53,9 @@ jobs:
           echo   REACT_APP_API =${{ secrets.REACT_APP_API}} >> .env
 
 
-    - name: Test App.js
-      working-directory: ./client
-          npm test
+    # - name: Test App.js
+    #   working-directory: ./client
+    #       npm test
           
       
 
